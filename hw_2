@@ -10,6 +10,7 @@ Console.WriteLine("Количество баллов по математике, 
 double math = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Количество баллов по физике, через запятую");
 double physic = Convert.ToDouble(Console.ReadLine());
-double middle = (prog + math + physic) / 3;
-string pattern = $" Ф.И.О: {naming} \nВозраст: {age} \nEmail: {email} \nБаллы по программированию: {prog} \nБаллы по математике: {math} \nБаллы по физике: {physic} \nСредний балл: {middle}";
+double summary = (prog + math + physic);
+double middle_sum = summary / 3;
+string pattern = $" Ф.И.О: {naming} \nВозраст: {age} \nEmail: {email} \nБаллы по программированию: {prog} \nБаллы по математике: {math} \nБаллы по физике: {physic} \nОбщий балл: {summary} \nСредний балл: {middle_sum}";
 Console.WriteLine(pattern);
