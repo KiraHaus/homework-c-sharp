@@ -1,0 +1,15 @@
+Console.WriteLine("Введи имя");
+string naming = Console.ReadLine();
+Console.WriteLine("Введи возраст");
+int age = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введи почту");
+string email = Console.ReadLine();
+Console.WriteLine("Количество баллов по кодингу, через запятую");
+double prog = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Количество баллов по математике, через запятую");
+double math = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine("Количество баллов по физике, через запятую");
+double physic = Convert.ToDouble(Console.ReadLine());
+double middle = (prog + math + physic) / 3;
+string pattern = $" Ф.И.О: {naming} \nВозраст: {age} \nEmail: {email} \nБаллы по программированию: {prog} \nБаллы по математике: {math} \nБаллы по физике: {physic} \nСредний балл: {middle}";
+Console.WriteLine(pattern);
