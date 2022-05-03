@@ -12,5 +12,3 @@ database.AddWorker(new Worker(database.Count + 1, "Паладич Кирилл",
 
 database.Print();
 database.WriteData();
-
-Console.WriteLine(database.Count);
