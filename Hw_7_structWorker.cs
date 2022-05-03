@@ -60,9 +60,9 @@ namespace Hw_7
         /// <summary>
         /// Дата рождения
         /// </summary>
-        private DateOnly birth;
+        private DateTime birth;
 
-        public DateOnly Birth
+        public DateTime Birth
         {
             get { return this.birth; }
             set { this.birth = value; }
@@ -89,7 +89,7 @@ namespace Hw_7
         /// <param name="Height"></param>
         /// <param name="Birth"></param>
         /// <param name="Place"></param>
-        public Worker(int Id, DateTime Date, string Name, int Age, int Height, DateOnly Birth, string Place)
+        public Worker(int Id, DateTime Date, string Name, int Age, int Height, DateTime Birth, string Place)
         {
             this.id = Id;
             this.date = Date;
@@ -100,7 +100,7 @@ namespace Hw_7
             this.place = Place;
         }
 
-        public Worker(int Id, string Name, int Age, int Height, DateOnly Birth, string Place):
+        public Worker(int Id, string Name, int Age, int Height, DateTime Birth, string Place):
             this(Id, DateTime.UtcNow, Name, Age, Height, Birth, Place)
         {
 
@@ -109,9 +109,9 @@ namespace Hw_7
         /// <summary>
         /// Вывод инфы
         /// </summary>
-        public string ShowInfo()
+        public string CreateWorker()
         {
-            return $"{Id}, {Date}, {Name}, {Age}, {Height}, {Birth}, {Place}";
+            return $"Номер:{Id}# Дата внесения:{Date}# Ф.И.О:{Name}# Возраст:{Age}# Рост:{Height}# Дата рождения:{Birth}# Место рождения:{Place}";
         }
     }
 }
