@@ -43,18 +43,6 @@ namespace Hw_7
             }
         }
 
-        public void WriteData()
-        {
-            using (StreamWriter add = new StreamWriter($@"{this.path}", true))
-            {
-                for (int i = 0; i < this.Workers.Length; i++)
-                {
-                    string worker = this.Workers[i].CreateWorker();
-                    add.WriteLine(worker.Replace("; ", "#"));
-                }
-            }
-        }
-
         public void Print()
         {
             for (int i = 0; i < this.Workers.Length; i++)
