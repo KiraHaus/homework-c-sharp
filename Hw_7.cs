@@ -11,4 +11,3 @@ database.AddWorker(new Worker(database.Count + 1, "Паладич Кирилл �
 database.AddWorker(new Worker(database.Count + 1, "Паладич Кирилл", 27, 178, new DateTime(1994, 08, 23), "Москва"));
 
 database.Print();
-database.WriteData();
