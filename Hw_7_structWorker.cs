@@ -111,7 +111,7 @@ namespace Hw_7
         /// </summary>
         public string CreateWorker()
         {
-            return $"Номер:{Id}# Дата внесения:{Date}# Ф.И.О:{Name}# Возраст:{Age}# Рост:{Height}# Дата рождения:{Birth}# Место рождения:{Place}";
+            return $"{Id} #{Date} #{Name} #{Age} #{Height} #{Birth} #{Place}";
         }
     }
 }
