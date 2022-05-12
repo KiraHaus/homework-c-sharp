@@ -43,6 +43,18 @@ namespace Hw_7
             }
         }
 
+        public void WriteData()
+        {
+            using (StreamWriter add = new StreamWriter($@"{this.path}", true))
+            {
+                for (int i = 0; i < this.Workers.Length; i++)
+                {
+                    string worker = this.Workers[i].CreateWorker();
+                    add.WriteLine(worker.Replace("; ", "#"));
+                }
+            }
+        }
+
         public void Print()
         {
             for (int i = 0; i < this.Workers.Length; i++)
@@ -51,3 +63,19 @@ namespace Hw_7
                 Console.WriteLine(worker.Replace("#", "; "));
             }
         }
+
+        public void Sort()
+        {
+            var sortedWorkers = from worker in this.Workers
+                                orderby worker.Birth
+                                select worker;
+
+            foreach (var worker in sortedWorkers)
+            {
+                Console.WriteLine($"{worker.Name} {worker.Birth}");
+            }
+
+
+        }
+    }
+}
