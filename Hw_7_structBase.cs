@@ -95,25 +95,26 @@ namespace Hw_7
 
         public void DeleteWorker(int id)
         {
+            string[] workers = new string[300];
+            int j = 0;
             using (StreamReader stream = new StreamReader(this.path))
             {
-                int i = 0;
-                string[] worker = new string[i];
                 while (!stream.EndOfStream)
                 {
-                    string[] workers = stream.ReadLine().Split('#');
-                    Array.Clear(workers, id, 1);
-
-                    foreach (string line in workers)
-                    {
-                        worker[i] = line;
-                        i++;
-
-                    }
-
+                    workers[j] = stream.ReadLine();
+                    j++;
                 }
-
             }
+
+            Array.Clear(workers, id, 1);
+            
+            using (StreamWriter add = new StreamWriter($@"{this.path}", true))
+                {
+                    foreach (string worker in workers)
+                {
+                    add.WriteLine(worker);
+                }
+                }
         }
     }
 }
