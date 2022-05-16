@@ -55,6 +55,18 @@ namespace Hw_7
             }
         }
 
+        public void RewriteData()
+        {
+            using (StreamWriter add = new StreamWriter($@"{this.path}", false))
+            {
+                for (int i = 0; i < this.Workers.Length; i++)
+                {
+                    string worker = this.Workers[i].CreateWorker();
+                    add.WriteLine(worker.Replace("; ", "#"));
+                }
+            }
+        }
+
         public void Print()
         {
             for (int i = 0; i < this.Workers.Length; i++)
@@ -95,26 +107,24 @@ namespace Hw_7
 
         public void DeleteWorker(int id)
         {
-            string[] workers = new string[300];
-            int j = 0;
-            using (StreamReader stream = new StreamReader(this.path))
-            {
-                while (!stream.EndOfStream)
-                {
-                    workers[j] = stream.ReadLine();
-                    j++;
-                }
-            }
+            string[] workers = File.ReadAllLines(this.path);
+            Array.Clear(workers, id-1, 1);
+            File.WriteAllLines(this.path, workers);
+        }
 
-            Array.Clear(workers, id, 1);
-            
-            using (StreamWriter add = new StreamWriter($@"{this.path}", true))
-                {
-                    foreach (string worker in workers)
-                {
-                    add.WriteLine(worker);
-                }
-                }
+        public void EditWorker(int id, DateTime data, string name, int age, int height, DateTime birth, string place)
+        {
+            //string[] workers = File.ReadAllLines(this.path);
+            //string worker = workers[id-1];
+            //string[] args = worker.Split("#");
+            //AddWorker(new Worker(Convert.ToInt32(args[0]), Convert.ToDateTime(args[1]), args[2], Convert.ToInt32(args[3]), Convert.ToInt32(args[4]), Convert.ToDateTime(args[5]), args[6]));
+            Worker worker = this.Workers[id -1];
+            worker.Name = name;
+            worker.Age = age;
+            worker.Height = height;
+            worker.Birth = birth;
+            worker.Place = place;
+
         }
     }
 }
