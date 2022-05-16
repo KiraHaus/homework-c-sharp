@@ -77,5 +77,43 @@ namespace Hw_7
 
 
         }
+
+        public void ShowWorker (int id)
+        {
+            int count = 0;
+            string worker = "";
+            using (StreamReader stream = new StreamReader(this.path))
+            {
+                while (id != count)
+                {
+                    worker = stream.ReadLine();
+                    count++;
+                }
+            }
+            Console.WriteLine(worker);
+        }
+
+        public void DeleteWorker(int id)
+        {
+            using (StreamReader stream = new StreamReader(this.path))
+            {
+                int i = 0;
+                string[] worker = new string[i];
+                while (!stream.EndOfStream)
+                {
+                    string[] workers = stream.ReadLine().Split('#');
+                    Array.Clear(workers, id, 1);
+
+                    foreach (string line in workers)
+                    {
+                        worker[i] = line;
+                        i++;
+
+                    }
+
+                }
+
+            }
+        }
     }
 }
