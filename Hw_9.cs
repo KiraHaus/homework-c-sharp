@@ -1,10 +1,8 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Extensions.Polling;
 using Telegram.Bot.Types;
-using Telegram.Bot.Exceptions;
 
 ITelegramBotClient bot = new TelegramBotClient("token");
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
@@ -44,7 +42,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 async void Download (string id, string name)
 {
     var file = await bot.GetFileAsync(id);
-    FileStream stream = new FileStream("_" + $@"C:\Users\paladich\Desktop\Skillbox\C sharp\9\Great Vault\{name}", FileMode.Create);
+    FileStream stream = new FileStream($@"C:\Users\paladich\Desktop\Skillbox\C sharp\9\Great Vault\{name}", FileMode.Create);
     await bot.DownloadFileAsync(file.FilePath, stream);
     stream.Close();
     stream.Dispose();
